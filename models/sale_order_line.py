@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*- 
 
 from odoo import models, fields, api, _
-from odoo.exceptions import UserError
+from odoo.exceptions import ValidationError
 
 
 class SaleOrderLine(models.Model):
@@ -20,6 +20,13 @@ class SaleOrderLine(models.Model):
             return
         prepress_proof = self.env['prepress.proof']._get_by_product(self.product_id)
         self.update({'prepress_proof_id': prepress_proof and prepress_proof.id or False})
+
+    def write(self, vals):
+        res = super(SaleOrderLine, self).write(vals)
+        for each in self:
+            if each.state == 'sale' and not each.prepress_proof_id:
+                raise ValidationError(_("The Prepress proof is required in sale state!"))
+        return res
 
 
 
