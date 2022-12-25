@@ -42,3 +42,10 @@ msgstr "BAT Obligatoire avant la confirmation!"
 #, python-format
 msgid "The Prepress proof is required in sale state!"
 msgstr "BAT obligatoire dans le statut Bon de commande!"
+
+
+#. module: sale_prepress_management
+#: code:addons/sale_prepress_management/models/sale_order_line.py:29
+#, python-format
+msgid "Prepress Proof %s has already been quarantined!"
+msgstr "BAT %s a déjà été mis en quarantaine!"
