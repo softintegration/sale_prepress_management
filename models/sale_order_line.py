@@ -8,6 +8,7 @@ class SaleOrderLine(models.Model):
     _inherit = 'sale.order.line'
 
     prepress_proof_id = fields.Many2one('prepress.proof', string='Prepress proof', readonly=True)
+    prepress_proof_client_ref = fields.Char(string='Customer Prepress proof reference',related='prepress_proof_id.client_ref')
 
     @api.onchange('product_id')
     def product_id_change(self):
