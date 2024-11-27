@@ -10,12 +10,13 @@
     'qweb': [],
     'description': False,
     'images': [],
-    'version': '1.0.1.6',
+    'version': '1.0.2',
     'category': 'Prepress',
     'demo': [],
     'depends': ['sale','prepress_management'],
     'data': [
-        'views/sale_views.xml'
+        'views/sale_views.xml',
+        'views/product_views.xml'
     ],
     'license': 'LGPL-3',
 }

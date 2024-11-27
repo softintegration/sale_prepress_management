@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?><odoo>
+  <data>
+
+    <record id="product_template_form_view_inherited" model="ir.ui.view">
+      <field name="name">product.template.form.view.inherited</field>
+      <field name="model">product.template</field>
+      <field name="priority">3000</field>
+      <field name="inherit_id" ref="product.product_template_form_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//page[@name='sales']/group[@name='sale']" position="before">
+            <group name="product_bat" attrs="{'invisible':[('type','!=','product')]}">
+               <field name="bat_product"/>
+            </group>
+        </xpath>
+      </field>
+    </record>
+
+
+
+
+  </data>
+</odoo>

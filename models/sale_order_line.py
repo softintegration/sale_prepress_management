@@ -35,6 +35,6 @@ class SaleOrderLine(models.Model):
     def write(self, vals):
         res = super(SaleOrderLine, self).write(vals)
         for each in self:
-            if each.state == 'sale' and each.product_id.type == 'product' and not each.prepress_proof_id:
+            if each.state == 'sale' and each.product_id.type == 'product' and each.product_id.bat_product and not each.prepress_proof_id:
                 raise ValidationError(_("The Prepress proof is required in sale state!"))
         return res
